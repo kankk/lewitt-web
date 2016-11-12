@@ -1,0 +1,29 @@
+@font-white: #ffffff;
+@font-silver: #e5e5e5;
+@font-gray: #cccccc;
+@font-darkgray: #666666;
+@font-black: #333333;
+@font-green: @theme-color;
+@font-size-normal: 14px;
+@font-family-normal: "Verdana";
+@color-normal: #78b000;
+@color-hover: #649300;
+@color-press: #4f7300;
+@color-disable: #cccccc;
+@theme-color: #78b000;
+@common-bgcolor: #000000;
+
+/* 文本hover添加改变颜色和添加下划线 */
+
+.text-hover(underline, @t-color: @font-green) {
+    text-decoration: underline;
+}
+
+.text-hover(nounderline, @t-color: @font-green) {
+    text-decoration: none;
+}
+
+.text-hover(@_, @t-color: @font-green) {
+    color: @t-color;
+    cursor: pointer;
+}

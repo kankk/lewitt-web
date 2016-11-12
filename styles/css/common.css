@@ -1,0 +1,163 @@
+@import "reset.css";
+/* 文本hover添加改变颜色和添加下划线 */
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+body {
+  font-size: 14px;
+  font-family: "Verdana";
+}
+.header {
+  background-color: #000000;
+  line-height: 56px;
+  text-align: center;
+  color: #ffffff;
+}
+.header-wrap {
+  width: 1280px;
+  height: 56px;
+  margin: 0 auto;
+}
+.header-logo {
+  float: left;
+  vertical-align: middle;
+  margin-left: 40px;
+}
+.header-logo img {
+  vertical-align: middle;
+}
+.header-nav {
+  display: inline-block;
+}
+.header-nav li {
+  float: left;
+  padding: 0 15px;
+}
+.header-nav li:hover {
+  text-decoration: none;
+  color: #78b000;
+  cursor: pointer;
+}
+.header-support {
+  float: right;
+  margin-right: 40px;
+}
+.header-support span {
+  margin-left: 15px;
+}
+.header-support span:hover {
+  text-decoration: none;
+  color: #78b000;
+  cursor: pointer;
+}
+.footer {
+  height: 400px;
+  background-color: #000000;
+  box-sizing: border-box;
+  border-bottom: 4px solid #78b000;
+  color: #ffffff;
+  overflow: hidden;
+}
+.footer-wrap {
+  width: 1280px;
+  margin: 0 auto;
+}
+.footer-nav {
+  margin: 95px 40px 0px;
+}
+.footer .footer-nav-column {
+  display: inline-block;
+  width: 16.66%;
+  vertical-align: top;
+}
+.footer .footer-nav-column h3 {
+  font-size: 18px;
+  line-height: 2em;
+}
+.footer .footer-nav-column li {
+  line-height: 2em;
+  color: #e5e5e5;
+}
+.footer .footer-nav-column li:hover {
+  text-decoration: underline;
+  color: #78b000;
+  cursor: pointer;
+}
+.footer .footer-nav-sms {
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+}
+.footer .footer-nav-sms ul {
+  overflow: hidden;
+  /* 抵消最右一个li的margin-right */
+  margin-right: -20px;
+}
+.footer .footer-nav-sms li {
+  width: 40px;
+  height: 40px;
+  float: left;
+  line-height: 40px;
+  text-align: center;
+  background-color: #ffffff;
+  margin-right: 20px;
+}
+.footer .footer-nav-sms li img {
+  vertical-align: middle;
+  font-size: 0;
+}
+.footer .footer-nav-sms li:hover {
+  cursor: pointer;
+  background-color: #cccccc;
+}
+.footer-info {
+  margin: 50px 40px 0px;
+  color: #666666;
+  font-size: 12px;
+  line-height: 1.5em;
+}
+.footer-copyright {
+  display: inline-block;
+  padding-right: 15px;
+  border-right: 1px solid #666666;
+}
+.footer-copyright span {
+  color: #78b000;
+}
+.footer-country {
+  display: inline-block;
+  padding-left: 15px;
+}
+.footer-country .country-icon {
+  vertical-align: -4px;
+}
+.footer-country .arrow {
+  vertical-align: -2px;
+}
+.footer-country span {
+  padding: 0 7px;
+}
+.footer-about {
+  display: inline-block;
+  float: right;
+}
+.footer-about span {
+  padding: 0 10px;
+}
+.footer-about span:nth-child(2) {
+  border-left: 1px solid #666666;
+  border-right: 1px solid #666666;
+}
+.footer-about span:nth-child(3) {
+  margin-right: -10px;
+}
+.footer-about span:hover {
+  text-decoration: underline;
+  color: #78b000;
+  cursor: pointer;
+}
