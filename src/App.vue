@@ -1,28 +1,23 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+    <lewitter-header></lewitter-header>
+    <router-view name="maincontent"></router-view>
+    <router-view name="brieffooter"></router-view>
+    <router-view name="detailfooter"></router-view>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import header from './components/header.vue'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    lewitterHeader: header,
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="less">
+@import './styles/common.less';
 </style>
