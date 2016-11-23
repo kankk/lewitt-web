@@ -1,0 +1,60 @@
+// 主题色
+@theme-color: #78b000;
+// 字体颜色
+@font-white: #ffffff;
+@font-silver: #e5e5e5;
+@font-gray: #cccccc;
+@font-darkgray: #666666;
+@font-black: #333333;
+@font-green: @theme-color;
+
+// 字体和字体大小
+@font-size-normal: 14px;
+@font-family-normal: "Verdana regular";
+
+// 响应颜色(字体/按钮等)
+@color-normal: #78b000;
+@color-hover: #649300;
+@color-press: #4f7300;
+@color-disable: #cccccc;
+@color-img-focus: #cccccc;
+
+// 公共部分颜色
+@common-bgcolor: #000000;
+@common-bgcolor-white: #ffffff;
+@footer-index-bgcolor: #f2f2f2;
+@footer-index-font: #999999;
+@header-nav2-bgcolor: #242424;
+@bg-color-white: #ffffff;
+
+// 公共部分参数
+@header-h: 56px;
+@footer-h: 400px;
+@footer-index-h: 45px;
+
+// 边框颜色
+@border-color: #666666;
+
+// 清除浮动
+.clearfix {
+    *zoom: 1;
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+/* 文本hover添加改变颜色和添加下划线 */
+.text-hover(underline, @t-color: @font-green) {
+    text-decoration: underline;
+}
+
+.text-hover(nounderline, @t-color: @font-green) {
+    text-decoration: none;
+}
+
+.text-hover(@_, @t-color: @font-green) {
+    color: @t-color;
+    cursor: pointer;
+}

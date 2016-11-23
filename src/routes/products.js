@@ -2,7 +2,7 @@ import footer from '../components/footer.vue'
 import products from '../views/products.vue'
 
 import lct from '../views/products/lct.vue'
-import mtr from '../views/products/mtr.vue'
+import mtp from '../views/products/mtp.vue'
 import dtp from '../views/products/dtp.vue'
 import dgt from '../views/products/dgt.vue'
 import lts from '../views/products/lts.vue'
@@ -24,9 +24,9 @@ export default [
   }
 },
 {
-  path: '/products/mtr',
+  path: '/products/mtp',
   components: {
-    maincontent: mtr,
+    maincontent: mtp,
     detailfooter: footer
   }
 },
