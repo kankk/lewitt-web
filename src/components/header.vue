@@ -187,5 +187,101 @@ export default {
 </script>
 
 <style lang="less">
+@import "../styles/public.less";
+#header {
+  background-color: @common-bgcolor;
+  height: @header-h;
+  line-height: @header-h;
+  text-align: center;
+  color: @font-white;
 
+  &-logo {
+    float: left;
+    margin-left: 40px;
+    vertical-align: middle;
+    img {
+      vertical-align: middle;
+    }
+  }
+
+  &-nav {
+    display: inline-block;
+    li {
+      float: left;
+      padding: 0 15px;
+      a {
+        &:hover {
+          .text-hover(nounderline);
+        }
+      }
+    }
+  }
+
+  .header-nav2 {
+    height: 45px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: @header-h;
+    background-color: @header-nav2-bgcolor;
+    z-index: 1;
+    ul {
+      display: inline-block;
+    }
+    li {
+      float: left;
+      line-height: 45px;
+      padding: 0 25px;
+      a {
+        &:hover {
+          .text-hover(nounderline);
+        }
+      }
+    }
+  }
+
+  &-support {
+    float: right;
+    margin-right: 40px;
+    span {
+      margin-left: 15px;
+      &:hover {
+        .text-hover(nounderline);
+      }
+    }
+
+    #header-search-icon {
+      cursor: pointer;
+    }
+
+    #header-search {
+      position: absolute;
+      width: 450px;
+      height: 32px;
+      line-height: 30px;
+      border: 1px solid @border-color;
+      border-radius: 4px;
+      margin-left: -380px;
+      margin-top: 30px;
+      background-color: @bg-color-white;
+      // z-index: 1;
+      input {
+        height: 30px;
+        width: 400px;
+        line-height: 30px;
+        border: none;
+        padding: 0;
+        margin-left: 10px;
+        vertical-align: middle;
+        &:focus {
+          outline: none;
+        }
+      }
+      img {
+        margin-left: 5px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
 </style>

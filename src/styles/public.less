@@ -34,16 +34,11 @@
 
 // 边框颜色
 @border-color: #666666;
+@hr-color-dark: #666666;
+@hr-color-light: #cccccc;
 
-// 清除浮动
-.clearfix {
-    *zoom: 1;
-    &:after {
-        content: '';
-        display: table;
-        clear: both;
-    }
-}
+// 响应式布局
+@col-margin: 28px;
 
 /* 文本hover添加改变颜色和添加下划线 */
 .text-hover(underline, @t-color: @font-green) {
