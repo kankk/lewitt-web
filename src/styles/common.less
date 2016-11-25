@@ -45,6 +45,57 @@ a {
     background-color: #282828;
 }
 
+// knowledge, support页面
+.leftnav {
+  h2 {
+    line-height: 1.5em;
+  }
+  h4 {
+    line-height: 1.5em;
+  }
+
+  &-meun {
+    background-color: @leftnav-bg-normal;
+    padding: 7px 0px;
+    box-sizing: border-box;
+    border-radius: @border-radius;
+    h4 {
+      margin: 0px 20px;
+    }
+
+    li {
+      line-height: 3em;
+      padding: 0px 20px;
+
+      &:hover {
+        background-color: @leftnav-bg-focus;
+        cursor: pointer;
+      }
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      background-color: @hr-color-dark;
+      padding: 0;
+      margin: 5px 20px
+    }
+
+    .leftnav-focus {
+      background-color: @leftnav-bg-focus;
+      font-weight: bold;
+    }
+  }
+}
+
+.leftnav-hr {
+  height: 1px;
+  border: none;
+  background-color: @hr-color-light;
+  padding: 0;
+  margin: 30px 0px;
+}
+
 [class*='col-'] {
   box-sizing: border-box;
   float: left;

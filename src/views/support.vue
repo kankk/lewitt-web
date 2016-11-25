@@ -1,6 +1,6 @@
 <template lang="html">
 <section id="support" class="clearfix">
-  <div id="support-nav" class="col-md-4 col-sm-12">
+  <div class="col-md-4 col-sm-12 leftnav">
     <h2>Support</h2>
     <h4>&nbsp</h4>
     <h4>Headquarters:</h4>
@@ -12,13 +12,14 @@
       Fax +43 (1) 74040 8048<br>
       &nbsp<br>
       General inquiries:<br>
-      info@lewitt-audio.com</h4>
-      <div>
+      info@lewitt-audio.com<br>
+      &nbsp</h4>
+      <div class="leftnav-meun">
         <h4>Menu</h4>
         <hr>
         <ul>
-          <li v-on:click="clickWarranty" :class="{'support-nav-focus': isWarranty}">Warranty</li>
-          <li v-on:click="clickDownload" :class="{'support-nav-focus': isDownload}">Download</li>
+          <li v-on:click="clickWarranty" :class="{'leftnav-focus': isWarranty}">Warranty</li>
+          <li v-on:click="clickDownload" :class="{'leftnav-focus': isDownload}">Download</li>
         </ul>
       </div>
   </div>
@@ -55,50 +56,9 @@ export default {
   margin: 45px 40px 0px;
   color: @font-black;
 
-  &-nav {
-    h2 {
-      line-height: 1.5em;
-    }
-    h4 {
-      line-height: 1.5em;
-    }
-
-    hr {
-      height: 1px;
-      border: none;
-      background-color: @hr-color-light;
-      padding: 0;
-      margin: 5px 20px
-
-    }
-
-    & > div {
-      background-color: #e6e6e6;
-      padding: 7px 0px;
-      margin-top: 30px;
-
-      h4 {
-        margin: 0px 20px;
-      }
-
-      li {
-        line-height: 2em;
-        padding: 0px 20px;
-
-        &:hover {
-          background-color: #cccccc;
-          cursor: pointer;
-        }
-      }
-    }
-  }
-
   a {
     color: @font-black;
   }
 }
 
-.support-nav-focus {
-  background-color: #cccccc;
-}
 </style>

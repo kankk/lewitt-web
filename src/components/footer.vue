@@ -124,7 +124,7 @@ export default {
       }
       &:hover {
         cursor: pointer;
-        background-color: @color-img-focus;
+        background-color: @color-hover;
       }
     }
   }
