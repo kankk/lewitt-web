@@ -22,16 +22,16 @@
         <div class="detailfooter-nav-column col-md-2">
           <h4>support</h4>
           <ul>
-            <li><router-link to="">Warranty</router-link></li>
-            <li><router-link to="">Download</router-link></li>
+            <li><router-link to="/support/warranty">Warranty</router-link></li>
+            <li><router-link to="/support/download">Download</router-link></li>
             <li><router-link to="">Knowledge</router-link></li>
           </ul>
         </div>
         <div class="detailfooter-nav-column col-md-2">
           <h4>About Lewitt</h4>
           <ul>
-            <li><router-link to="/about/">Our Story</router-link></li>
-            <li><router-link to="/about/">Contact Us</router-link></li>
+            <li><router-link to="/about/ourstory">Our Story</router-link></li>
+            <li><router-link to="/about/contactus">Contact Us</router-link></li>
             <li><router-link to="/about/">Where to Buy</router-link></li>
           </ul>
         </div>
@@ -57,7 +57,7 @@
         <div id="detailfooter-info-about">
           <span><router-link to="/sitemap">Site Map</router-link></span>
           <span><router-link to="/">Jobs</router-link></span>
-          <span><router-link to="/">Contact Us</router-link></span>
+          <span><router-link to="/about/contactus">Contact Us</router-link></span>
         </div>
       </section>
   </footer>

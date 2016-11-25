@@ -88,12 +88,14 @@ export default {
 @import "../styles/public.less";
 #sitemap {
   overflow: hidden;
+  color: @font-black;
   a {
     color: @font-black;
   }
 
   &-links {
     margin: 50px 40px 80px;
+    padding-bottom: 40px;
 
     h4 {
       color: @font-green;

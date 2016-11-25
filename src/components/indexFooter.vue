@@ -10,9 +10,9 @@
         <img src="../assets/images/arrow.png" id="country-arrow">
       </div>
       <div id="brieffooter-info-about">
-        <span><a href="#">Site Map</a></span>
-        <span><a href="#">Jobs</a></span>
-        <span><a href="#">Contact Us</a></span>
+        <span><router-link to="/sitemap">Site Map</router-link></span>
+        <span><router-link to="/">Jobs</router-link></span>
+        <span><router-link to="/about/contactus">Contact Us</router-link></span>
       </div>
     <section>
   </footer>
