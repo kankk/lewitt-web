@@ -1,6 +1,6 @@
 
 <template lang="html">
-  <section id="wheretobuy">
+  <section id="wheretobuy" class="clearfix">
     <div class="col-md-4 col-sm-12 leftnav">
       <h2>Where to Buy</h2>
       <h4>&nbsp</h4>
@@ -12,9 +12,9 @@
         <h4>Menu</h4>
         <hr>
         <ul>
-          <li :class="{'leftnav-focus': isWarranty}">Distribution</li>
-          <li :class="{'leftnav-focus': isWarranty}">Retailers</li>
-          <li :class="{'leftnav-focus': isWarranty}">Online Shops</li>
+          <li v-on:click="clickDistribution" :class="{'leftnav-focus': isDistribution}">Distribution</li>
+          <li v-on:click="clickRetailers" :class="{'leftnav-focus': isRetailers}">Retailers</li>
+          <li v-on:click="clickOnlineshpos" :class="{'leftnav-focus': isOnlineshops}">Online Shops</li>
         </ul>
       </div>
       <div class="leftnav-img" v-for="n in 3">
@@ -26,11 +26,39 @@ genuine in your sound.</h4>
         <img src="../../assets/images/wheretobuy-leftnav-img.png" alt="" />
       </div>
     </div>
+    <router-view></router-view>
   </section>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      isDistribution: true,
+      isRetailers: false,
+      isOnlineshops: false,
+    }
+  },
+  methods: {
+    clickDistribution: function(event) {
+      this.$router.push('/about/wheretobuy/distribution');
+      this.isDistribution = true;
+      this.isRetailers = false;
+      this.isOnlineshops = false;
+    },
+    clickRetailers: function(event) {
+      this.$router.push('/about/wheretobuy/retailers');
+      this.isDistribution = false;
+      this.isRetailers = true;
+      this.isOnlineshops = false;
+    },
+    clickOnlineshpos: function(event) {
+      this.$router.push('/about/wheretobuy/onlineshops');
+      this.isDistribution = false;
+      this.isRetailers = false;
+      this.isOnlineshops = true;
+    },
+  },
 }
 </script>
 

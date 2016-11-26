@@ -17,7 +17,7 @@
     <div id="header-support">
       <label for="header-search-input"><img src="../assets/images/header-search.png" alt="" id="header-search-icon" v-on:click="showSearchBox"/></label>
       <span>Reseller</span>
-      <span>Support</span>
+      <router-link to="/support" tag="span">Support</router-link>
       <div id="header-search" v-show="showSearch">
         <input type="text" name="search-audio" placeholder="Search for Lewitt-Audio" id="header-search-input" v-on:blur="hiddenSearchBox">
         <img src="../assets/images/content-search.png" alt="" />

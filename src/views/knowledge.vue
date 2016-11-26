@@ -1,6 +1,6 @@
 
 <template lang="html">
-  <section id="knowledge">
+  <section id="knowledge" class="clearfix">
     <div class="col-md-4 col-sm-12 leftnav">
       <h2>Knowledge</h2>
       <div id="knowledge-nav-search">
@@ -12,7 +12,8 @@
         <h4>Menu</h4>
         <hr>
         <ul>
-          <li v-for="knowledge in knowledges">{{ knowledge.title }}</li>
+          <!-- <li v-for="knowledge in knowledges"><router-link :to="{ path: '/knowledge/' + knowledge.title}">{{ knowledge.title }}</router-link></li> -->
+          <router-link :to="{ path: '/knowledge/' + knowledge.title}" v-for="knowledge in knowledges" tag="li">{{ knowledge.title }}</router-link>
         </ul>
       </div>
     </div>
