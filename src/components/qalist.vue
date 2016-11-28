@@ -14,13 +14,14 @@ const qaItem = {
   </div>\
   <div v-if="showDetails" class="qa-answer">\
     <p class="qa-answer-content">{{ qa.answer }}</p>\
-    <router-link to="" tag="p" class="qa-answer-todetail">How does it work？</router-link>\
+    <router-link :to="detailPath" tag="p" class="qa-answer-todetail">How does it work？</router-link>\
   </div>\
   </div>',
   props: ['qa'],
   data() {
     return {
       showDetails: false,
+      detailPath: '',
     }
   },
   methods: {
@@ -28,8 +29,12 @@ const qaItem = {
       this.showDetails = !(this.showDetails)
     }
   },
+  created: function() {
+    this.detailPath = this.$route.path + '/' + this.qa.question;
+  },
   watch: {
     '$route' (to, from) {
+      this.detailPath = to.path + '/' + this.qa.question;
       this.showDetails = false;
     }
   }
@@ -39,7 +44,7 @@ export default {
   data() {
     return {
       qas: [],
-      knowledge: knowledge
+      knowledge: knowledge,
     }
   },
   components: {
@@ -53,7 +58,7 @@ export default {
         }
       }
       return '';
-    }
+    },
   },
   created() {
     this.qas = this.getQalist(this.$route.params.qatitle);

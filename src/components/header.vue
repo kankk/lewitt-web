@@ -1,7 +1,8 @@
 <template lang="html">
   <header id="header">
+    <div src="../assets/images/showmenu.png" id="header-showmore" class="md-hidden" v-on:click="toggleNav"></div>
     <router-link to="/" id="header-logo"><img src="../assets/images/logo.png" alt="" /></router-link>
-    <ul id="header-nav" class="clearfix">
+    <ul id="header-nav" :class="[{'sm-hidden': hiddenNav}, 'clearfix']">
       <li v-on:mouseover="showProductsNav" v-on:mouseout="hiddenProductNav"><router-link to="/products" v-on:click.native="clickProducts" v-bind:class="{'nav-focus': isProducts}">PRODUCTS</router-link></li>
       <li v-on:mouseover="showSamplesNav" v-on:mouseout="hiddenSamplesNav"><router-link to="/samples" v-on:click.native="clickSamples" v-bind:class="{'nav-focus': isSamples}">SOUND SAMPLES</router-link></li>
       <li><router-link to="/endorsers" v-on:click.native="clickEndorsers" v-bind:class="{'nav-focus': isEndorsers}">ENDORSERS</router-link></li>
@@ -10,9 +11,9 @@
       <li v-on:mouseover="showAboutNav" v-on:mouseout="hiddenAboutNav"><router-link to="/about" v-on:click.native="clickAbout" v-bind:class="{'nav-focus': isAbout}">LEWITT</router-link></li>
     </ul>
 
-    <products-nav v-show="showProducts" class="header-nav2" v-on:showProductsSubNav="showProductsNav" v-on:hiddenProductSubNav="hiddenProductNav"></products-nav>
-    <samples-nav v-show="showSamples" class="header-nav2" v-on:showSamplesSubNav="showSamplesNav" v-on:hiddenSamplesSubNav="hiddenSamplesNav"></samples-nav>
-    <about-nav v-show="showAbout" class="header-nav2" v-on:showAboutSubNav="showAboutNav" v-on:hiddenAboutSubNav="hiddenAboutNav"></about-nav>
+    <products-nav v-show="showProducts" class="header-nav2 sm-hidden" v-on:showProductsSubNav="showProductsNav" v-on:hiddenProductSubNav="hiddenProductNav"></products-nav>
+    <samples-nav v-show="showSamples" class="header-nav2 sm-hidden" v-on:showSamplesSubNav="showSamplesNav" v-on:hiddenSamplesSubNav="hiddenSamplesNav"></samples-nav>
+    <about-nav v-show="showAbout" class="header-nav2 sm-hidden" v-on:showAboutSubNav="showAboutNav" v-on:hiddenAboutSubNav="hiddenAboutNav"></about-nav>
 
     <div id="header-support">
       <label for="header-search-input"><img src="../assets/images/header-search.png" alt="" id="header-search-icon" v-on:click="showSearchBox"/></label>
@@ -45,7 +46,7 @@ const productsNav = {
     },
     hiddenProductSubNav: function (event) {
       this.$emit('hiddenProductSubNav')
-    }
+    },
   }
 }
 
@@ -91,7 +92,7 @@ export default {
   components: {
     productsNav: productsNav,
     samplesNav: samplesNav,
-    aboutNav: aboutNav
+    aboutNav: aboutNav,
   },
   data() {
     return {
@@ -106,6 +107,8 @@ export default {
       isNews: false,
       isKnowledge: false,
       isAbout: false,
+
+      hiddenNav: true,
     }
   },
   methods: {
@@ -181,6 +184,9 @@ export default {
       this.isNews = false
       this.isKnowledge = false
       this.isAbout = true
+    },
+    toggleNav: function() {
+      this.hiddenNav = !(this.hiddenNav);
     }
   }
 }
@@ -192,56 +198,16 @@ export default {
   background-color: @common-bgcolor;
   height: @header-h;
   line-height: @header-h;
-  text-align: center;
   color: @font-white;
-
   &-logo {
-    float: left;
-    margin-left: 40px;
     vertical-align: middle;
     img {
       vertical-align: middle;
     }
   }
 
-  &-nav {
-    display: inline-block;
-    li {
-      float: left;
-      padding: 0 15px;
-      a {
-        &:hover {
-          .text-hover(nounderline);
-        }
-      }
-    }
-  }
-
-  .header-nav2 {
-    height: 45px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: @header-h;
-    background-color: @header-nav2-bgcolor;
-    z-index: 1;
-    ul {
-      display: inline-block;
-    }
-    li {
-      float: left;
-      line-height: 45px;
-      padding: 0 25px;
-      a {
-        &:hover {
-          .text-hover(nounderline);
-        }
-      }
-    }
-  }
-
   &-support {
-    float: right;
+    // float: right;
     margin-right: 40px;
     span {
       margin-left: 15px;
@@ -261,7 +227,7 @@ export default {
       line-height: 30px;
       border: 1px solid @border-color;
       border-radius: 4px;
-      margin-left: -380px;
+      // margin-left: -380px;
       margin-top: 30px;
       background-color: @bg-color-white;
       // z-index: 1;
@@ -280,6 +246,102 @@ export default {
       img {
         margin-left: 5px;
         vertical-align: middle;
+      }
+    }
+  }
+}
+
+@media (min-width: 1081px) {
+  #header {
+text-align: center;
+    &-logo {
+      float: left;
+      margin-left: 40px;
+    }
+
+    &-nav {
+      display: inline-block;
+      li {
+        float: left;
+        padding: 0 15px;
+        a {
+          &:hover {
+            .text-hover(nounderline);
+          }
+        }
+      }
+    }
+    &-support {
+      float: right;
+      #header-search {
+        margin-left: -380px;
+      }
+    }
+
+    .header-nav2 {
+      height: 45px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: @header-h;
+      background-color: @header-nav2-bgcolor;
+      z-index: 1;
+      ul {
+        display: inline-block;
+      }
+      li {
+        float: left;
+        line-height: 45px;
+        padding: 0 25px;
+        a {
+          &:hover {
+            .text-hover(nounderline);
+          }
+        }
+      }
+    }
+
+  }
+}
+@media (max-width: 1080px) {
+  #header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    &-showmore {
+      margin-left: 40px;
+      float: left;
+      width: 30px;
+      height: 25px;
+      box-sizing: border-box;
+      background-color: white;
+      border-top: 5px solid white;
+      border-bottom: 5px solid white;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      background-clip: content-box;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    &-support {
+      float: right;
+      #header-search {
+        margin-left: -280px;
+      }
+    }
+    &-nav {
+      background-color: @header-nav2-bgcolor;
+      position: absolute;
+      top: @header-h;
+      left: 0;
+      li {
+        padding: 0 40px;
+        &:hover {
+          cursor: pointer;
+          background-color: rgba(255, 255, 255, 0.2);
+        }
       }
     }
   }

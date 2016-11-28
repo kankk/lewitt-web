@@ -1,13 +1,13 @@
 
 <template lang="html">
   <section>
-    <div class="list-banner" id="news-banner">
+    <div class="list-banner news-banner">
       <h1>
         Unaltered. Authentic. Memorable.
       </h1>
     </div>
     <div class="info-list">
-      <info-item v-for="news in newslist" v-bind:info="news"></info-item>
+      <info-item v-for="news in newslist" v-bind:info="news" v-bind:detailPath="getDetailPath(news)"></info-item>
     </div>
   </section>
 </template>
@@ -23,6 +23,11 @@ export default {
     return {
       newslist: newslist
     }
+  },
+  methods: {
+    getDetailPath: function(news) {
+      return '/news/' + news.name;
+    }
   }
 }
 </script>
@@ -30,7 +35,7 @@ export default {
 <style lang="less">
 @import "../styles/public.less";
 
-#news-banner {
+.news-banner {
   background-image: url(../assets/images/news-banner.png);
   background-size: cover;
   display: flex;
@@ -46,7 +51,7 @@ export default {
 .info-list {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;;;
+  justify-content: space-around;
   margin: 40px 40px 0;
   padding-bottom: 40px;
 }

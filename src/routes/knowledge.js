@@ -1,6 +1,7 @@
 import footer from '../components/footer.vue'
 import knowledge from '../views/knowledge.vue'
 import qalist from '../components/qalist.vue'
+import qadetail from '../views/qadetail.vue'
 
 export default [
 {
@@ -13,6 +14,10 @@ export default [
     {
       path: ':qatitle',
       component: qalist,
+    },
+    {
+      path: ':qatitle/:qadetail',
+      component: qadetail
     }
   ]
 }

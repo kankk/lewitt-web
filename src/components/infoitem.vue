@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="info-list-item">
+  <router-link :to="detailPath" tag="div" class="info-list-item">
     <img :src="info.imgpath" alt="" />
     <div>
       <h4>{{ info.name }}</h4>
@@ -8,12 +8,12 @@
       </p>
       <span>{{ info.info }}</span>
     </div>
-  </div>
+</router-link>
 </template>
 
 <script>
 export default {
-  props: ['info']
+  props: ['info', 'detailPath']
 }
 </script>
 

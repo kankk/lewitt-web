@@ -12,8 +12,7 @@
         <h4>Menu</h4>
         <hr>
         <ul>
-          <!-- <li v-for="knowledge in knowledges"><router-link :to="{ path: '/knowledge/' + knowledge.title}">{{ knowledge.title }}</router-link></li> -->
-          <router-link :to="{ path: '/knowledge/' + knowledge.title}" v-for="knowledge in knowledges" tag="li">{{ knowledge.title }}</router-link>
+          <router-link :to="{ path: '/knowledge/' + knowledge.title}" v-for="(knowledge, index) in knowledges" tag="li" v-on:click.native="leftnavClick(index)" :class="{'leftnav-focus': focusList[index]}">{{ knowledge.title }}</router-link>
         </ul>
       </div>
     </div>
@@ -23,12 +22,33 @@
 
 <script>
 import {knowledge} from '../assets/knowledge.js'
+import Vue from 'vue'
 export default {
   data() {
     return {
       knowledges: knowledge,
+      focusList: [],
     }
   },
+  methods: {
+    leftnavClick: function (index) {
+      this.clearFocusList();
+      // this.focusList[index] = true;
+      // Vue不能检测数组直接赋值的变动
+      Vue.set(this.focusList, index, true);
+    },
+    clearFocusList: function () {
+      for(var i = 0; i < this.focusList.length; i++) {
+        // this.focusList[i] = false;
+        Vue.set(this.focusList, i, false);
+      }
+    },
+  },
+  created: function () {
+    this.focusList.length = this.knowledges.length;
+    this.clearFocusList();
+  },
+
 }
 </script>
 

@@ -1,9 +1,9 @@
 <template lang="html">
   <footer id="detailfooter">
       <section id="detailfooter-nav" class="clearfix">
-        <div class="detailfooter-nav-column col-md-2">
-          <h4>Products</h4>
-          <ul>
+        <div class="detailfooter-nav-column col-md-2 col-sm-12">
+          <h4 v-on:click="toggleProducts" class="sm-hover">Products</h4>
+          <ul :class="{ 'sm-hidden': hiddenProducts }">
             <li><router-link to="/products/lct">LCT Recording Series</router-link></li>
             <li><router-link to="/products/mtp">MTP Live Series</router-link></li>
             <li><router-link to="/products/dtp">DTP Percussion Series</router-link></li>
@@ -11,32 +11,32 @@
             <li><router-link to="/products/lts">LTS Wireless Series</router-link></li>
           </ul>
         </div>
-        <div class="detailfooter-nav-column col-md-2">
-          <h4>Sound Samples</h4>
-          <ul>
+        <div class="detailfooter-nav-column col-md-2 col-sm-12">
+          <h4 v-on:click="toggleSamples" class="sm-hover">Sound Samples</h4>
+          <ul  :class="{ 'sm-hidden': hiddenSamples }">
             <li><router-link to="/samples/">Applications</router-link></li>
             <li><router-link to="/samples/">Microphones</router-link></li>
             <li><router-link to="/samples/">Competition</router-link></li>
           </ul>
         </div>
-        <div class="detailfooter-nav-column col-md-2">
-          <h4>support</h4>
-          <ul>
+        <div class="detailfooter-nav-column col-md-2 col-sm-12">
+          <h4 v-on:click="toggleSupport" class="sm-hover">support</h4>
+          <ul  :class="{ 'sm-hidden': hiddenSupport }">
             <li><router-link to="/support/warranty">Warranty</router-link></li>
             <li><router-link to="/support/download">Download</router-link></li>
-            <li><router-link to="">Knowledge</router-link></li>
+            <li><router-link to="/knowledge">Knowledge</router-link></li>
           </ul>
         </div>
-        <div class="detailfooter-nav-column col-md-2">
-          <h4>About Lewitt</h4>
-          <ul>
+        <div class="detailfooter-nav-column col-md-2 col-sm-12">
+          <h4 v-on:click="toggleAbout" class="sm-hover">About Lewitt</h4>
+          <ul  :class="{ 'sm-hidden': hiddenAbout }">
             <li><router-link to="/about/ourstory">Our Story</router-link></li>
             <li><router-link to="/about/contactus">Contact Us</router-link></li>
             <li><router-link to="/about/">Where to Buy</router-link></li>
           </ul>
         </div>
-        <div class="detailfooter-nav-sms col-md-4">
-          <ul class="clearfix">
+        <div class="detailfooter-nav-sms col-md-4 col-sm-12 sm-hidden">
+          <ul class="clearfix sm-hidden">
             <li><a href="#"><img src="../assets/images/sms-facebook.png" alt="facebook"></a></li>
             <li><a href="#"><img src="../assets/images/sms-twitter.png" alt="twitter"></a></li>
             <li><a href="#"><img src="../assets/images/sms-youtube.png" alt="youtube"></a></li>
@@ -45,7 +45,7 @@
         </div>
       </section>
 
-      <section id="detailfooter-info">
+      <section id="detailfooter-info" class="sm-hidden">
         <div id="detailfooter-info-copyright">
           &copy;2015 <span>LEWITT GmbH</span> all rights reserved
         </div>
@@ -66,14 +66,34 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      hiddenProducts: true,
+      hiddenSamples: true,
+      hiddenSupport: true,
+      hiddenAbout: true,
+    }
+  },
+  methods: {
+    toggleProducts: function() {
+      this.hiddenProducts = !(this.hiddenProducts);
+    },
+    toggleSamples: function() {
+      this.hiddenSamples = !(this.hiddenSamples);
+    },
+    toggleSupport: function() {
+      this.hiddenSupport = !(this.hiddenSupport);
+    },
+    toggleAbout: function() {
+      this.hiddenAbout = !(this.hiddenAbout);
+    },
+  }
 }
 </script>
 
 <style lang="less">
 @import "../styles/public.less";
 #detailfooter {
-  height: @footer-h;
   width: 100%;
   background-color: @common-bgcolor;
   box-sizing: border-box;
@@ -83,13 +103,12 @@ export default {
   overflow: hidden;
 
   &-nav {
-    margin: 95px 40px 0px;
+    margin: 95px ( 40px - @col-margin / 2) 0px;
   }
 
+
   .detailfooter-nav-column {
-    display: inline-block;
-    // width: 17%;
-    vertical-align: top;
+    // vertical-align: top;
     h4 {
       line-height: 2em;
     }
@@ -102,10 +121,10 @@ export default {
         .text-hover(underline);
       }
     }
+
   }
 
   .detailfooter-nav-sms {
-    display: inline-block;
     ul {
       margin-right: -20px;
       float: right;
@@ -130,7 +149,7 @@ export default {
   }
 
   &-info {
-    margin: 50px 40px 0px;
+    margin: 20px 40px 20px;
     color: @font-darkgray;
     font-size: @font-size-normal - 2px;
     line-height: 1.5em;
@@ -181,5 +200,27 @@ export default {
     }
   }
 
+}
+
+@media (max-width: 1080px) {
+  #detailfooter {
+    &-nav {
+      margin: 20px ( 40px - @col-margin / 2) 0px;
+
+      li:hover{
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      li {
+        border-top: 1px solid white;
+        a {
+          line-height: 3em;
+        }
+      }
+      li:last-child {
+        border-bottom: 1px solid white;
+      }
+    }
+  }
 }
 </style>

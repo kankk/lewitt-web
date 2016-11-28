@@ -1,24 +1,24 @@
 export var endorsers = [
     {
-      name: 'Steve Aoki',
+      name: 'Steve Aoki1',
       imgpath: '/static/images/endorser1.png',
       title: 'International DJ / Artist / Producer',
       info: 'Founder of DIM MAK Records (MSTRKRAFT, The Bloody Retroots, ...) // Released two albums, dozens of EPs and countless remixes'
     },
     {
-      name: 'Steve Aoki',
+      name: 'Steve Aoki2',
       imgpath: '/static/images/endorser2.png',
       title: 'International DJ / Artist / Producer',
       info: 'Founded in 1947 // B.o.B, Trey Songz, Flo Rida, Sean Paul, Missy Elliot, Jason Mraz, Phil Collins, James Blunt, Tank, Skrillex, Kid Rock, Bruno Mars'
     },
     {
-      name: 'Steve Aoki',
+      name: 'Steve Aoki3',
       imgpath: '/static/images/endorser3.png',
       title: 'International DJ / Artist / Producer',
       info: 'Received several awards including platinum record for Colbie Caillat’s album "Coco" // Produced artists including Hoobastank, Pixie Lott, Tim Fagan, Does commercial work for clients including Disney, Hasbro, NBC, Skechers,.... // Combines performance and production skills with his own production company charbeneaumusic'
     },
     {
-      name: 'Steve Aoki',
+      name: 'Steve Aoki4',
       title: 'International DJ / Artist / Producer',
       imgpath: '/static/images/endorser4.png',
       info: 'Founder of DIM MAK Records (MSTRKRAFT, The Bloody Retroots, ...) // Released two albums, dozens of EPs and countless remixes'

@@ -102,8 +102,8 @@ a {
   margin: 0px ( @col-margin / 2 ) @col-margin;
 }
 
-/*大于768px*/
-@media (min-width: 769px) {
+/*大于1080px*/
+@media (min-width: 1081px) {
     .col-md-1 {
         width: calc( ~'8.333%'- @col-margin);
     }
@@ -125,10 +125,14 @@ a {
     .col-md-6 {
         width: calc( ~'50%' - @col-margin);
     }
+
+    .md-hidden {
+      display: none;
+    }
 }
 
-/*小于768px*/
-@media (max-width: 768px) {
+/*小于1080px*/
+@media (max-width: 1080px) {
     .col-sm-2 {
         width: calc( ~'16.666%' - @col-margin);
     }
@@ -153,5 +157,11 @@ a {
 
     .sm-hidden {
       display: none;
+    }
+
+    .sm-hover {
+      &:hover {
+        cursor: pointer;
+      }
     }
 }

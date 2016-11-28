@@ -1,7 +1,7 @@
 
 <template lang="html">
   <section>
-    <div class="list-banner" id="endorser-banner">
+    <div class="list-banner" id="endorsers-banner">
       <div>
         <h1>"A welcomed addition</h1>
         <h1>to my microphone</h1>
@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="info-list">
-      <info-item v-for="enorser in endorsers" v-bind:info="enorser"></info-item>
+      <info-item v-for="endorser in endorsers" v-bind:info="endorser" v-bind:detailPath="getDetailPath(endorser)"></info-item>
     </div>
   </section>
 </template>
@@ -27,14 +27,19 @@ export default {
     return {
       endorsers: endorsers,
     }
+  },
+  methods: {
+    getDetailPath: function(endorser) {
+      return '/endorsers/' + endorser.name;
+    }
   }
 }
 </script>
 
 <style lang="less">
 @import "../styles/public.less";
-#endorser-banner {
-  background-image: url(../assets/images/endorser-banner.png);
+#endorsers-banner {
+  background-image: url(../assets/images/endorsers-banner.png);
   background-size: cover;
   display: flex;
   flex-direction: row-reverse;
