@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="col-md-4 col-sm-12 product-list-item">
+  <router-link class="col-md-4 col-sm-12 product-list-item" :to="detailPath" tag="div">
     <img :src="product.imgpath" alt="" />
     <div class="product-list-item-text">
       <h4>{{ product.name }}</h4>
@@ -8,12 +8,17 @@
         {{ product.outline }}
       </p>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
 export default {
-  props: ['product']
+  props: ['product'],
+  data() {
+    return {
+      detailPath: '/products/' + this.product.name,
+    }
+  },
 }
 </script>
 

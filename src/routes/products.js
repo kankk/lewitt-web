@@ -6,6 +6,7 @@ import mtp from '../views/products/mtp.vue'
 import dtp from '../views/products/dtp.vue'
 import dgt from '../views/products/dgt.vue'
 import lts from '../views/products/lts.vue'
+import productdetail from '../views/products/productdetail.vue'
 
 
 export default [
@@ -51,4 +52,11 @@ export default [
     detailfooter: footer
   }
 },
+{
+  path: '/products/:productname',
+  components: {
+    maincontent: productdetail,
+    detailfooter: footer
+  }
+}
 ]
