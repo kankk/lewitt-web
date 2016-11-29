@@ -1,5 +1,5 @@
 import footer from '../components/footer.vue'
-import about from '../views/about.vue'
+// import about from '../views/about.vue'
 
 import contactus from '../views/about/contactus.vue'
 import ourstory from '../views/about/ourstory.vue'
@@ -13,7 +13,7 @@ export default [
 {
   path: '/about',
   components: {
-    maincontent: about,
+    maincontent: contactus,
     detailfooter: footer
   }
 },

@@ -230,7 +230,7 @@ export default {
       // margin-left: -380px;
       margin-top: 30px;
       background-color: @bg-color-white;
-      // z-index: 1;
+      z-index: 1;
       input {
         height: 30px;
         width: 400px;
@@ -336,6 +336,7 @@ text-align: center;
       position: absolute;
       top: @header-h;
       left: 0;
+      z-index: 1;
       li {
         padding: 0 40px;
         &:hover {

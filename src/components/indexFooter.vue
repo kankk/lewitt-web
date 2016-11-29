@@ -86,4 +86,13 @@ export default {
     }
   }
 }
+
+@media (min-width: 1081px) {
+  #brieffooter {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
 </style>
