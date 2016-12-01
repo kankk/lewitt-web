@@ -4,35 +4,35 @@
         <div class="detailfooter-nav-column col-md-2 col-sm-12">
           <h4 v-on:click="toggleProducts" class="sm-hover">Products</h4>
           <ul :class="{ 'sm-hidden': hiddenProducts }">
-            <li><router-link to="/products/lct">LCT Recording Series</router-link></li>
-            <li><router-link to="/products/mtp">MTP Live Series</router-link></li>
-            <li><router-link to="/products/dtp">DTP Percussion Series</router-link></li>
-            <li><router-link to="/products/dgt">DGT Digital Series</router-link></li>
-            <li><router-link to="/products/lts">LTS Wireless Series</router-link></li>
+            <li><router-link to="/products/lct" v-on:click.native="changeTo('products')">LCT Recording Series</router-link></li>
+            <li><router-link to="/products/mtp" v-on:click.native="changeTo('products')">MTP Live Series</router-link></li>
+            <li><router-link to="/products/dtp" v-on:click.native="changeTo('products')">DTP Percussion Series</router-link></li>
+            <li><router-link to="/products/dgt" v-on:click.native="changeTo('products')">DGT Digital Series</router-link></li>
+            <li><router-link to="/products/lts" v-on:click.native="changeTo('products')">LTS Wireless Series</router-link></li>
           </ul>
         </div>
         <div class="detailfooter-nav-column col-md-2 col-sm-12">
           <h4 v-on:click="toggleSamples" class="sm-hover">Sound Samples</h4>
           <ul  :class="{ 'sm-hidden': hiddenSamples }">
-            <li><router-link to="/samples/">Applications</router-link></li>
-            <li><router-link to="/samples/">Microphones</router-link></li>
-            <li><router-link to="/samples/">Competition</router-link></li>
+            <li><router-link to="/samples/"  v-on:click.native="changeTo('samples')">Applications</router-link></li>
+            <li><router-link to="/samples/"  v-on:click.native="changeTo('samples')">Microphones</router-link></li>
+            <li><router-link to="/samples/"  v-on:click.native="changeTo('samples')">Competition</router-link></li>
           </ul>
         </div>
         <div class="detailfooter-nav-column col-md-2 col-sm-12">
           <h4 v-on:click="toggleSupport" class="sm-hover">support</h4>
           <ul  :class="{ 'sm-hidden': hiddenSupport }">
-            <li><router-link to="/support/warranty">Warranty</router-link></li>
-            <li><router-link to="/support/download">Download</router-link></li>
-            <li><router-link to="/knowledge">Knowledge</router-link></li>
+            <li><router-link to="/support/warranty"  v-on:click.native="changeTo('')">Warranty</router-link></li>
+            <li><router-link to="/support/download"  v-on:click.native="changeTo('')">Download</router-link></li>
+            <li><router-link to="/knowledge"  v-on:click.native="changeTo('knowledge')">Knowledge</router-link></li>
           </ul>
         </div>
         <div class="detailfooter-nav-column col-md-2 col-sm-12">
           <h4 v-on:click="toggleAbout" class="sm-hover">About Lewitt</h4>
           <ul  :class="{ 'sm-hidden': hiddenAbout }">
-            <li><router-link to="/about/ourstory">Our Story</router-link></li>
-            <li><router-link to="/about/contactus">Contact Us</router-link></li>
-            <li><router-link to="/about/">Where to Buy</router-link></li>
+            <li><router-link to="/about/ourstory" v-on:click.native="changeTo('about')">Our Story</router-link></li>
+            <li><router-link to="/about/contactus" v-on:click.native="changeTo('about')">Contact Us</router-link></li>
+            <li><router-link to="/about/wheretobuy" v-on:click.native="changeTo('about')">Where to Buy</router-link></li>
           </ul>
         </div>
         <div class="detailfooter-nav-sms col-md-4 col-sm-12 sm-hidden">
@@ -57,7 +57,7 @@
         <div id="detailfooter-info-about">
           <span><router-link to="/sitemap">Site Map</router-link></span>
           <span><router-link to="/">Jobs</router-link></span>
-          <span><router-link to="/about/contactus">Contact Us</router-link></span>
+          <span><router-link to="/about/contactus"  v-on:click.native="changeTo('about')">Contact Us</router-link></span>
         </div>
       </section>
   </footer>
@@ -87,6 +87,9 @@ export default {
     toggleAbout: function() {
       this.hiddenAbout = !(this.hiddenAbout);
     },
+    changeTo: function(tag) {
+      this.$store.commit('changeCurrent', tag)
+    }
   }
 }
 </script>

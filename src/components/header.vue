@@ -1,14 +1,14 @@
 <template lang="html">
   <header id="header">
     <div src="../assets/images/showmenu.png" id="header-showmore" class="md-hidden" v-on:click="toggleNav"></div>
-    <router-link to="/" id="header-logo"><img src="../assets/images/logo.png" alt="" /></router-link>
+    <router-link to="/" id="header-logo" v-on:click.native="changeTo('')"><img src="../assets/images/logo.png" alt="" /></router-link>
     <ul id="header-nav" :class="[{'sm-hidden': hiddenNav}, 'clearfix']">
-      <li v-on:mouseover="showProductsNav" v-on:mouseout="hiddenProductNav"><router-link to="/products" v-on:click.native="clickProducts" v-bind:class="{'nav-focus': isProducts}">PRODUCTS</router-link></li>
-      <li v-on:mouseover="showSamplesNav" v-on:mouseout="hiddenSamplesNav"><router-link to="/samples" v-on:click.native="clickSamples" v-bind:class="{'nav-focus': isSamples}">SOUND SAMPLES</router-link></li>
-      <li><router-link to="/endorsers" v-on:click.native="clickEndorsers" v-bind:class="{'nav-focus': isEndorsers}">ENDORSERS</router-link></li>
-      <li><router-link to="/news" v-on:click.native="clickNews" v-bind:class="{'nav-focus': isNews}">NEWS</router-link></li>
-      <li><router-link to="/knowledge" v-on:click.native="clickKnowledge" v-bind:class="{'nav-focus': isKnowledge}">KNOWLEDGE</router-link></li>
-      <li v-on:mouseover="showAboutNav" v-on:mouseout="hiddenAboutNav"><router-link to="/about" v-on:click.native="clickAbout" v-bind:class="{'nav-focus': isAbout}">LEWITT</router-link></li>
+      <li v-on:mouseover="showProductsNav" v-on:mouseout="hiddenProductNav"><router-link to="/products" v-on:click.native="changeTo('products')" v-bind:class="{'nav-focus': isProducts}">PRODUCTS</router-link></li>
+      <li v-on:mouseover="showSamplesNav" v-on:mouseout="hiddenSamplesNav"><router-link to="/samples" v-on:click.native="changeTo('samples')" v-bind:class="{'nav-focus': isSamples}">SOUND SAMPLES</router-link></li>
+      <li><router-link to="/endorsers" v-on:click.native="changeTo('endorsers')" v-bind:class="{'nav-focus': isEndorsers}">ENDORSERS</router-link></li>
+      <li><router-link to="/news" v-on:click.native="changeTo('news')" v-bind:class="{'nav-focus': isNews}">NEWS</router-link></li>
+      <li><router-link to="/knowledge" v-on:click.native="changeTo('knowledge')" v-bind:class="{'nav-focus': isKnowledge}">KNOWLEDGE</router-link></li>
+      <li v-on:mouseover="showAboutNav" v-on:mouseout="hiddenAboutNav"><router-link to="/about" v-on:click.native="changeTo('about')" v-bind:class="{'nav-focus': isAbout}">LEWITT</router-link></li>
     </ul>
 
     <products-nav v-show="showProducts" class="header-nav2 sm-hidden" v-on:showProductsSubNav="showProductsNav" v-on:hiddenProductSubNav="hiddenProductNav"></products-nav>
@@ -18,7 +18,7 @@
     <div id="header-support">
       <label for="header-search-input"><img src="../assets/images/header-search.png" alt="" id="header-search-icon" v-on:click="showSearchBox"/></label>
       <span>Reseller</span>
-      <router-link to="/support" tag="span">Support</router-link>
+      <router-link to="/support" tag="span"  v-on:click.native="changeTo('')">Support</router-link>
       <div id="header-search" v-show="showSearch">
         <input type="text" name="search-audio" placeholder="Search for Lewitt-Audio" id="header-search-input" v-on:blur="hiddenSearchBox">
         <img src="../assets/images/content-search.png" alt="" />
@@ -33,11 +33,11 @@
 const productsNav = {
   template: '<nav  v-on:mouseover="showProductsSubNav" v-on:mouseout="hiddenProductSubNav">\
     <ul>\
-      <li><router-link to="/products/lct">LCT Recording</router-link></li>\
-      <li><router-link to="/products/mtp">MTP Live</router-link></li>\
-      <li><router-link to="/products/dtp">DTP Percussion</router-link></li>\
-      <li><router-link to="/products/dgt">DGT Digital</router-link></li>\
-      <li><router-link to="/products/lts">LTS Wireless</router-link></li>\
+      <li><router-link to="/products/lct" v-on:click.native="changeTo">LCT Recording</router-link></li>\
+      <li><router-link to="/products/mtp" v-on:click.native="changeTo">MTP Live</router-link></li>\
+      <li><router-link to="/products/dtp" v-on:click.native="changeTo">DTP Percussion</router-link></li>\
+      <li><router-link to="/products/dgt" v-on:click.native="changeTo">DGT Digital</router-link></li>\
+      <li><router-link to="/products/lts" v-on:click.native="changeTo">LTS Wireless</router-link></li>\
     </ul>\
   </nav>',
   methods: {
@@ -47,6 +47,9 @@ const productsNav = {
     hiddenProductSubNav: function (event) {
       this.$emit('hiddenProductSubNav')
     },
+    changeTo: function () {
+      this.$store.commit('changeCurrent', 'products')
+    }
   }
 }
 
@@ -54,9 +57,9 @@ const productsNav = {
 const samplesNav = {
   template: '<nav v-on:mouseover="showSamplesSubNav" v-on:mouseout="hiddenSamplesSubNav">\
     <ul>\
-      <li><router-link to="/samples/applications">Applications</router-link></li>\
-      <li><router-link to="/samples/microphones">Microphones</router-link></li>\
-      <li><router-link to="/samples/compare">Compare against Competition</router-link></li>\
+      <li><router-link to="/samples/applications" v-on:click.native="changeTo">Applications</router-link></li>\
+      <li><router-link to="/samples/microphones" v-on:click.native="changeTo">Microphones</router-link></li>\
+      <li><router-link to="/samples/compare" v-on:click.native="changeTo">Compare against Competition</router-link></li>\
     </ul>\
   </nav>',
   methods: {
@@ -66,6 +69,9 @@ const samplesNav = {
     hiddenSamplesSubNav: function (event) {
       this.$emit('hiddenSamplesSubNav')
     },
+    changeTo: function () {
+      this.$store.commit('changeCurrent', 'samples')
+    }
   }
 }
 
@@ -73,9 +79,9 @@ const samplesNav = {
 const aboutNav = {
   template: '<nav v-on:mouseover="showAboutSubNav" v-on:mouseout="hiddenAboutSubNav">\
     <ul>\
-      <li><router-link to="/about/ourstory">Our Story</router-link></li>\
-      <li><router-link to="/about/contactus">Contact Us</router-link></li>\
-      <li><router-link to="/about/wheretobuy">Where to buy</router-link></li>\
+      <li><router-link to="/about/ourstory" v-on:click.native="changeTo">Our Story</router-link></li>\
+      <li><router-link to="/about/contactus" v-on:click.native="changeTo">Contact Us</router-link></li>\
+      <li><router-link to="/about/wheretobuy" v-on:click.native="changeTo">Where to buy</router-link></li>\
     </ul>\
   </nav>',
   methods: {
@@ -84,6 +90,9 @@ const aboutNav = {
     },
     hiddenAboutSubNav: function (event) {
       this.$emit('hiddenAboutSubNav')
+    },
+    changeTo: function () {
+      this.$store.commit('changeCurrent', 'about')
     }
   }
 }
@@ -101,12 +110,12 @@ export default {
       showAbout: false,
       showSearch: false,
 
-      isProducts: false,
-      isSamples: false,
-      isEndorsers: false,
-      isNews: false,
-      isKnowledge: false,
-      isAbout: false,
+      // isProducts: false,
+      // isSamples: false,
+      // isEndorsers: false,
+      // isNews: false,
+      // isKnowledge: false,
+      // isAbout: false,
 
       hiddenNav: true,
     }
@@ -137,57 +146,104 @@ export default {
       this.showSearch = false
     },
     // 点击导航栏操作, 要改
-    clickProducts: function(event) {
-      this.isProducts = true
-      this.isSamples = false
-      this.isEndorsers = false
-      this.isNews = false
-      this.isKnowledge = false
-      this.isAbout = false
-    },
-    clickSamples: function(event) {
-      this.isProducts = false
-      this.isSamples = true
-      this.isEndorsers = false
-      this.isNews = false
-      this.isKnowledge = false
-      this.isAbout = false
-    },
-    clickEndorsers: function(event) {
-      this.isProducts = false
-      this.isSamples = false
-      this.isEndorsers = true
-      this.isNews = false
-      this.isKnowledge = false
-      this.isAbout = false
-    },
-    clickNews: function(event) {
-      this.isProducts = false
-      this.isSamples = false
-      this.isEndorsers = false
-      this.isNews = true
-      this.isKnowledge = false
-      this.isAbout = false
-    },
-    clickKnowledge: function(event) {
-      this.isProducts = false
-      this.isSamples = false
-      this.isEndorsers = false
-      this.isNews = false
-      this.isKnowledge = true
-      this.isAbout = false
-    },
-    clickAbout: function(event) {
-      this.isProducts = false
-      this.isSamples = false
-      this.isEndorsers = false
-      this.isNews = false
-      this.isKnowledge = false
-      this.isAbout = true
+    // clickProducts: function(event) {
+    //   this.isProducts = true
+    //   this.isSamples = false
+    //   this.isEndorsers = false
+    //   this.isNews = false
+    //   this.isKnowledge = false
+    //   this.isAbout = false
+    // },
+    // clickSamples: function(event) {
+    //   this.isProducts = false
+    //   this.isSamples = true
+    //   this.isEndorsers = false
+    //   this.isNews = false
+    //   this.isKnowledge = false
+    //   this.isAbout = false
+    // },
+    // clickEndorsers: function(event) {
+    //   this.isProducts = false
+    //   this.isSamples = false
+    //   this.isEndorsers = true
+    //   this.isNews = false
+    //   this.isKnowledge = false
+    //   this.isAbout = false
+    // },
+    // clickNews: function(event) {
+    //   this.isProducts = false
+    //   this.isSamples = false
+    //   this.isEndorsers = false
+    //   this.isNews = true
+    //   this.isKnowledge = false
+    //   this.isAbout = false
+    // },
+    // clickKnowledge: function(event) {
+    //   this.isProducts = false
+    //   this.isSamples = false
+    //   this.isEndorsers = false
+    //   this.isNews = false
+    //   this.isKnowledge = true
+    //   this.isAbout = false
+    // },
+    // clickAbout: function(event) {
+    //   this.isProducts = false
+    //   this.isSamples = false
+    //   this.isEndorsers = false
+    //   this.isNews = false
+    //   this.isKnowledge = false
+    //   this.isAbout = true
+    // },
+    changeTo: function(tag) {
+      this.$store.commit('changeCurrent', tag)
     },
     toggleNav: function() {
       this.hiddenNav = !(this.hiddenNav);
     }
+  },
+  computed: {
+    isProducts: function() {
+      if(this.$store.state.header.current == 'products') {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    isSamples: function() {
+      if(this.$store.state.header.current == 'samples') {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    isEndorsers: function() {
+      if(this.$store.state.header.current == 'endorsers') {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    isNews: function() {
+      if(this.$store.state.header.current == 'news') {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    isKnowledge: function() {
+      if(this.$store.state.header.current == 'knowledge') {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    isAbout: function() {
+      if(this.$store.state.header.current == 'about') {
+        return true;
+      } else {
+        return false;
+      }
+    },
   }
 }
 </script>

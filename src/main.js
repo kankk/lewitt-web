@@ -4,6 +4,8 @@ Vue.config.debug = true;
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
+import store from './store'
+
 import indexrouter from './routes/index.js'
 import productsrouter from './routes/products.js'
 import samplesrouter from './routes/samples.js'
@@ -30,5 +32,6 @@ const router = new VueRouter({
 /* eslint-disable no-new */
 const app = new Vue({
   router: router,
+  store,
   render: h => h(App)
 }).$mount('#app')
